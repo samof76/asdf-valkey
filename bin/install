@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-install_redis() {
+install_valkey() {
   local install_type=$1
   local version=$2
   local install_path=$3
@@ -21,8 +21,8 @@ install_redis() {
     tar zxf $source_path || exit 1
     cd $(untar_path $install_type $version $tmp_download_dir)
 
-    if [[ -n "${REDIS_APPLY_PATCHES:-}" ]]; then
-      apply_patches "$(fetch_patches "$REDIS_APPLY_PATCHES")"
+    if [[ -n "${valkey_APPLY_PATCHES:-}" ]]; then
+      apply_patches "$(fetch_patches "$valkey_APPLY_PATCHES")"
     fi
 
     # set in os_based_configure_options
@@ -41,9 +41,9 @@ untar_path() {
 
   if [ "$install_type" = "version" ]
   then
-    echo "$tmp_download_dir/redis-${version}"
+    echo "$tmp_download_dir/valkey-${version}"
   else
-    echo "$tmp_download_dir/redis-${version}"
+    echo "$tmp_download_dir/valkey-${version}"
   fi
 }
 
@@ -62,7 +62,7 @@ get_download_file_path() {
   local install_type=$1
   local version=$2
   local tmp_download_dir=$3
-  local pkg_name="redis-${version}.tar.gz"
+  local pkg_name="valkey-${version}.tar.gz"
 
   echo "$tmp_download_dir/$pkg_name"
 }
@@ -71,7 +71,7 @@ get_download_file_path() {
 get_download_url() {
   local install_type=$1
   local version=$2
-  echo "https://download.redis.io/releases/redis-${version}.tar.gz"
+  echo "https://github.com/valkey-io/valkey/archive/refs/tags/${version}.tar.gz"
 }
 
 
@@ -124,4 +124,4 @@ apply_patches() {
   done
 }
 
-install_redis $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
+install_valkey $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
