@@ -21,8 +21,8 @@ install_valkey() {
     tar zxf $source_path || exit 1
     cd $(untar_path $install_type $version $tmp_download_dir)
 
-    if [[ -n "${valkey_APPLY_PATCHES:-}" ]]; then
-      apply_patches "$(fetch_patches "$valkey_APPLY_PATCHES")"
+    if [[ -n "${VALKEY_APPLY_PATCHES:-}" ]]; then
+      apply_patches "$(fetch_patches "$VALKEY_APPLY_PATCHES")"
     fi
 
     # set in os_based_configure_options
