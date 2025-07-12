@@ -15,7 +15,7 @@ _This requires [brew](http://brew.sh) if you're on a mac, or a debian flavored l
 ## Install
 
 ```
-asdf plugin-add valkey https://github.com/smashedtoatoms/asdf-valkey.git
+asdf plugin-add valkey https://github.com/samof76/asdf-valkey.git
 ```
 
 ## Try it out
@@ -49,3 +49,7 @@ You may also apply custom patches before building with `VALKEY_APPLY_PATCHES`. F
 VALKEY_APPLY_PATCHES=$'dir/1.patch\n2.patch\nhttp://example.com/3.patch' asdf install valkey 7.0.12
 VALKEY_APPLY_PATCHES="https://patch-diff.githubusercontent.com/raw/valkey/valkey/pull/12601.diff" asdf install valkey 7.0.12
 ```
+
+## Thank You
+
+This was initially forked from [asdf-redis](https://github.com/smashedtoatoms/asdf-redis). And I would want to sincerely thank [*smashedtoatoms*](https://github.com/smashedtoatoms) for his work on asdf-redis.
