@@ -14,8 +14,44 @@ _This requires [brew](http://brew.sh) if you're on a mac, or a debian flavored l
 
 ## Install
 
+Install the valkey plugin
+
+```bash
+asdf plugin add valkey https://github.com/samof76/asdf-valkey.git
 ```
-asdf plugin-add valkey https://github.com/samof76/asdf-valkey.git
+
+List all available versions of valkey ...
+
+```bash
+asdf list all valkey
+# Outuput
+# 7.2.4-rc1
+# 7.2.4-rc1
+# 7.2.4
+# 7.2.5-rc1
+# 7.2.5
+# 7.2.6
+# 7.2.7
+# 7.2.8
+# 7.2.9
+# 7.2.10
+# ...
+# 8.1.3
+```
+
+Install the `8.1.3` version of valkey by running:
+
+```bash
+asdf install valkey 8.1.3
+```
+
+Set that version globally.
+
+```bash
+# If you are using older versions of asdf, you may need to run this...
+asdf global valkey 8.1.3
+# If you are on the latest version of asdf
+asdf set -u valkey 8.1.3
 ```
 
 ## Try it out
